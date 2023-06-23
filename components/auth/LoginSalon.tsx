@@ -1,11 +1,14 @@
-import useInput from "@/hooks/useInput";
-import { TitleH } from "@/components/atom/Text";
-import Button from "@/components/atom/Button";
-import Input from "@/components/atom/Input";
-import { useLogin } from "./hooks/useLogin";
+import Link from "next/link";
 import { FormEvent } from "react";
+
 import { useAppDispatch } from "@/store/hooks";
 import { setToast } from "@/store/toastSlice";
+import useInput from "@/hooks/useInput";
+import { useLogin } from "./hooks/useLogin";
+
+import { TextP, TitleH } from "@/components/atom/Text";
+import Button from "@/components/atom/Button";
+import Input from "@/components/atom/Input";
 
 const LoginSalon = () => {
   const { value: tel, onChange: onTelChange } = useInput("");
@@ -48,6 +51,9 @@ const LoginSalon = () => {
         onChange={onPasswordChange}
       />
       <Button type="submit" text="로그인" plusStyle="my-4 " />
+      <Link href="/create">
+        <TextP text="회원이 되고 싶습니다." />
+      </Link>
     </form>
   );
 };

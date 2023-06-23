@@ -1,37 +1,48 @@
 import { useBoolean } from "@/hooks/useBoolean";
+import { useSetConfirm } from "./hooks/useSetConfirm";
+
 import { ReservationState } from "@/types/ReservationTypes";
+
 import Button from "../atom/Button";
 import Confirm from "../atom/Confirm";
 import { TitleH, TextP } from "../atom/Text";
-import { useSetConfirm } from "./hooks/useSetConfirm";
 
-const Cancel = ({ booking }: { booking: ReservationState }) => {
+const Cancel = ({ reservation }: { reservation: ReservationState }) => {
   const { isTrue: openCancel, setOpposite: setOpenCancel } = useBoolean(false);
-  const { setConfirm: setCancel } = useSetConfirm(booking.id);
+  const { setConfirm: setCancel } = useSetConfirm(reservation.id);
 
   const handleSetCancel = () => {
-    const reservation = { ...booking };
-    reservation.cancel = true;
-    setCancel(reservation);
+    const editedReservation = { ...reservation };
+    editedReservation.cancel = true;
+    setCancel(editedReservation);
     setOpenCancel();
   };
 
   return (
     <div
-      id={booking.id}
+      id={reservation.id}
       className="flex flex-col justify-center items-center w-full h-fit p-4 my-3 border-2 border-gray-400 rounded shadow"
     >
       <div className="flex flex-col justify-around items-baseline w-full h-fit border-b-2 border-b-gray-400">
         <TitleH text="예약자 정보" plusStyle="w-full text-center" />
-        <TextP text={`이름 : ${booking.name}`} plusStyle="w-full text-left" />
-        <TextP text={`연락처 : ${booking.tel}`} plusStyle="w-full text-left" />
-        <TextP text={`날짜: ${booking.date}`} plusStyle="w-full text-left" />
         <TextP
-          text={`시간: ${booking.time}`}
+          text={`이름 : ${reservation.name}`}
+          plusStyle="w-full text-left"
+        />
+        <TextP
+          text={`연락처 : ${reservation.tel}`}
+          plusStyle="w-full text-left"
+        />
+        <TextP
+          text={`날짜: ${reservation.date}`}
+          plusStyle="w-full text-left"
+        />
+        <TextP
+          text={`시간: ${reservation.time}`}
           plusStyle="w-full text-left mb-4"
         />
       </div>
-      {booking.cancel ? (
+      {reservation.cancel ? (
         <TextP text="취소 처리 되었습니다." plusStyle="mt-4" />
       ) : (
         <Button

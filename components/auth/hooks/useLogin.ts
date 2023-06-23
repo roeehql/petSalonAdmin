@@ -1,8 +1,8 @@
+import { useRouter } from "next/router"
 import { salonApi } from "@/pages/api/getSalonListApi"
 import { useAppDispatch } from "@/store/hooks"
 import { setToast } from "@/store/toastSlice"
 import { setUserInfo } from "@/store/userInfoSlice"
-import { useRouter } from "next/router"
 
 export const useLogin = () => {
     const dispatch = useAppDispatch()

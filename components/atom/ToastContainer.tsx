@@ -1,6 +1,6 @@
+import { useEffect } from "react";
 import { useAppSelector, useAppDispatch } from "@/store/hooks";
 import { removeToast } from "@/store/toastSlice";
-import { useEffect } from "react";
 import Toast from "./Toast";
 
 const ToastContainer = () => {

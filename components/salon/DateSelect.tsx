@@ -1,43 +1,40 @@
-import { setCondition } from "@/store/conditionSlice";
-import { useAppDispatch } from "@/store/hooks";
-import { ReservationState } from "@/types/ReservationTypes";
 import { ChangeEvent, useState } from "react";
+import { ReservationState } from "@/types/ReservationTypes";
 import Contents from "./Contents";
 
-const DateSelect = ({ bookings }: { bookings: ReservationState[] }) => {
-  const dispatch = useAppDispatch();
+const DateSelect = ({ reservations }: { reservations: ReservationState[] }) => {
   const [selectedDate, setSelectedDate] = useState("");
 
   return (
     <>
       <div className="flex justify-center items-center w-full">
         <label
-          htmlFor="booking-date"
+          htmlFor="reservation-date"
           className="w-full text-center text-2xl my-4"
         >
           예약 날짜 내역
         </label>
         <select
           className="p-4 rounded shadow outline-none border-2 border-sky-300"
-          id="booking-date"
+          id="reservation-date"
           onChange={(e: ChangeEvent<HTMLSelectElement>) =>
             setSelectedDate(e.target.value)
           }
         >
           <option className="px-2 py-3">날짜를 선택하세요</option>
-          {bookings.map((booking, i) => (
-            <option key={i} value={booking.date} className="px-2 py-3">
-              {booking.date} - {booking.time}
+          {reservations.map((reservation, i) => (
+            <option key={i} value={reservation.date} className="px-2 py-3">
+              {reservation.date} - {reservation.time}
             </option>
           ))}
         </select>
       </div>
-      {bookings
-        .filter((booking) => booking.date === selectedDate)
-        .map((selectedBooking, i) => (
+      {reservations
+        .filter((reservation) => reservation.date === selectedDate)
+        .map((selectedreservation, i) => (
           <Contents
-            key={`${i}${selectedBooking.id}`}
-            booking={selectedBooking}
+            key={`${i}${selectedreservation.id}`}
+            reservation={selectedreservation}
           />
         ))}
     </>

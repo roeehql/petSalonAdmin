@@ -1,9 +1,11 @@
 import { useRouter } from "next/router";
-import { useBoolean } from "@/hooks/useBoolean";
+
 import { useAppDispatch } from "@/store/hooks";
 import { setToast } from "@/store/toastSlice";
 import { setCondition } from "@/store/conditionSlice";
 import { removeUserInfo } from "@/store/userInfoSlice";
+import { useBoolean } from "@/hooks/useBoolean";
+
 import Button from "../atom/Button";
 import Confirm from "../atom/Confirm";
 
@@ -57,7 +59,7 @@ const SalonMenu = () => {
         />
         <SalonLi
           text={isReduce ? "정보변경" : "매장 정보 변경"}
-          onClick={() => router.push("/")}
+          onClick={() => router.push("/users")}
         />
       </ul>
       <Button

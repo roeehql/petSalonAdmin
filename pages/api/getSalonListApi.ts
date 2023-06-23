@@ -19,10 +19,9 @@ export const salonApi = {
             tel,
             password
         })
-        console.log(data)
         return {data, status}
     },
-    getBooking : async (shop:string) => {
+    getreservation : async (shop:string) => {
         const { data , status } = await axiosApi.post(`/reservations/byShop`,{
             shop
         },{
@@ -30,7 +29,6 @@ export const salonApi = {
             Authorization: handleStorage.getStorage(TOKEN)
             }
         })
-        console.log(data)
         return { data , status }
     },
     setConfirm : async ({id , confirmData}:{id:string, confirmData:ReservationInput}) => {

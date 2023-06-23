@@ -1,11 +1,15 @@
 import { useState } from "react";
+import Link from "next/link";
+import DaumPostcodeEmbed from "react-daum-postcode";
+
 import useInput from "@/hooks/useInput";
+import useHandleSignUp from "./hooks/useHandleSignUp";
+import { useHandleAddress } from "./hooks/useHandleAddress";
 import { Salons } from "@/types/salonsTypes";
+
 import Input from "../atom/Input";
 import Button from "../atom/Button";
 import { TextP, TitleH } from "../atom/Text";
-import Toast from "../atom/Toast";
-import useHandleSignUp from "./hooks/useHandleSignUp";
 
 const SignUpForm = () => {
   const [salon, setSalon] = useState<Salons>({
@@ -19,11 +23,11 @@ const SignUpForm = () => {
     hasPickupService: false,
   });
   const { handleSubmit } = useHandleSignUp();
+  const { address, handleComplete, resetAddress } = useHandleAddress();
 
   const { value: name, onChange: onNameChange } = useInput("");
   const { value: tel, onChange: onTelChange } = useInput("");
   const { value: password, onChange: onPasswordChange } = useInput("");
-  const { value: address, onChange: onAddressChange } = useInput("");
 
   const handleSignUp = () => {
     setSalon({
@@ -56,12 +60,23 @@ const SignUpForm = () => {
         value={tel}
         onChange={onTelChange}
       />
-      <Input
-        type="text"
+      <DaumPostcodeEmbed
+        className="outline-none my-4 p-2 border-2 border-sky-600 rounded"
+        onComplete={handleComplete}
+      />
+      <label
+        className="pt-4 text-base tracking-tighter text-green-950"
+        htmlFor="address"
+      >
+        매장주소
+      </label>
+      <textarea
+        className=" resize-none w-full h-fit my-4 p-4 outline-none border-2 border-sky-600 rounded"
         name="address"
-        labelText="매장주소"
         value={address}
-        onChange={onAddressChange}
+        onClick={resetAddress}
+        readOnly
+        required
       />
       <Input
         type="password"
@@ -156,6 +171,9 @@ const SignUpForm = () => {
         text="매장 등록"
         plusStyle="my-3"
       />
+      <Link href="/">
+        <TextP text="로그인 하러 가기" />
+      </Link>
     </div>
   );
 };

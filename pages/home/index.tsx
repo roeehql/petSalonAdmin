@@ -1,5 +1,8 @@
-import ReservationList from "@/components/salon/ReservationList";
-import SalonMenu from "@/components/salon/SalonMenu";
+import dynamic from "next/dynamic";
+const ReservationList = dynamic(
+  () => import("@/components/salon/ReservationList")
+);
+const SalonMenu = dynamic(() => import("@/components/salon/SalonMenu"));
 
 const SalonHome = () => {
   return (
