@@ -37,23 +37,23 @@ const SalonMenu = () => {
       <ul className="flex flex-col justify-start items-start w-full ">
         <SalonLi
           text={isReduce ? "전체보기" : "전체 내역 보기"}
-          onClick={() => dispatch(setCondition(""))}
+          onClick={() => dispatch(setCondition({ condition: "전체" }))}
         />
         <SalonLi
           text={isReduce ? "확정" : "확정 예약 확인"}
-          onClick={() => dispatch(setCondition("확정"))}
+          onClick={() => dispatch(setCondition({ condition: "확정" }))}
         />
         <SalonLi
           text={isReduce ? "미확정" : "미확정 예약 확인"}
-          onClick={() => dispatch(setCondition("미확정"))}
+          onClick={() => dispatch(setCondition({ condition: "미확정" }))}
         />
         <SalonLi
           text={isReduce ? "날짜별" : "날짜별로 보기"}
-          onClick={() => dispatch(setCondition("날짜"))}
+          onClick={() => dispatch(setCondition({ condition: "날짜" }))}
         />
         <SalonLi
           text={isReduce ? "취소요청" : "취소 요청 확인"}
-          onClick={() => dispatch(setCondition("취소"))}
+          onClick={() => dispatch(setCondition({ condition: "취소" }))}
         />
         <SalonLi
           text={isReduce ? "정보변경" : "매장 정보 변경"}

@@ -15,6 +15,7 @@ export interface ReservationState {
     createdAt : string;
     updatedAt : string;
     confirm: boolean;
+    cancel: boolean;
   }
   
   
