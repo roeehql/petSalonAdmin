@@ -5,14 +5,14 @@ import DaumPostcodeEmbed from "react-daum-postcode";
 import useInput from "@/hooks/useInput";
 import useHandleSignUp from "./hooks/useHandleSignUp";
 import { useHandleAddress } from "./hooks/useHandleAddress";
-import { Salons } from "@/types/salonsTypes";
+import { SalonAuth } from "@/types/salonsTypes";
 
 import Input from "../atom/Input";
 import Button from "../atom/Button";
 import { TextP, TitleH } from "../atom/Text";
 
 const SignUpForm = () => {
-  const [salon, setSalon] = useState<Salons>({
+  const [salon, setSalon] = useState<SalonAuth>({
     name: "",
     tel: "",
     password: "",
