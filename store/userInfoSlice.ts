@@ -25,6 +25,10 @@ export const userInfoSlice = createSlice({
       handleStorage.setStorage(INFO, JSON.stringify({shop: action.payload.shop, tel: action.payload.tel}))
       state.value = action.payload
     },
+    saveUserInfo: (state) => {
+      const info = handleStorage.getStorage(INFO) === "empty" ? initialState.value :JSON.parse(handleStorage.getStorage(INFO))
+      state.value = {shop : info.shop, tel: info.tel,token: handleStorage.getStorage(TOKEN)}
+    },
     removeUserInfo : (state)=>{
       handleStorage.clearStorage(INFO)
       handleStorage.clearStorage(TOKEN);
@@ -33,7 +37,7 @@ export const userInfoSlice = createSlice({
   },
 })
 
-export const { setUserInfo , removeUserInfo } = userInfoSlice.actions
+export const { setUserInfo , removeUserInfo, saveUserInfo } = userInfoSlice.actions
 
 export const getUserInfo = (state: RootState) => state.userInfo
 

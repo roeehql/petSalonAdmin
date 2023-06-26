@@ -13,7 +13,7 @@ const Confirm = ({
   onCancelClick: () => void;
 }) => {
   return (
-    <div className="absolute w-full h-full flex justify-center items-center">
+    <div className="absolute top-0 left-0 w-full h-full flex justify-center items-center">
       <div className="flex flex-col min-w-1/2 h-fit p-6 bg-white rounded shadow">
         <TextP text={text} plusStyle="w-full text-center mb-4" />
         <div>

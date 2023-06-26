@@ -25,10 +25,13 @@ export const salonInfoSlice = createSlice({
     setSalonInfo: (state , action: PayloadAction<SalonList>) => {
       state.value = action.payload
     },
+    clearSalonInfo: (state)=>{
+      state.value = initialState.value
+    }
   },
 })
 
-export const { setSalonInfo } = salonInfoSlice.actions
+export const { setSalonInfo, clearSalonInfo } = salonInfoSlice.actions
 
 export const getSalonInfo = (state: RootState) => state.salonInfo
 
