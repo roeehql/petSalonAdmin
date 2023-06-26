@@ -3,7 +3,7 @@ import type { PayloadAction } from '@reduxjs/toolkit'
 import type { RootState } from './store'
 
 interface ConditionState {
-    condition: "확정" | "미확정" | "취소" | "날짜" | "전체",
+    condition: "확정" | "미확정" | "취소" | "날짜" | "전체" | "정보",
 }
 
 const initialState:ConditionState = {
@@ -25,6 +25,6 @@ export const conditionSlice = createSlice({
 
 export const { setCondition , removeCondition } = conditionSlice.actions
 
-export const getCondition = (state: RootState) => state.condition
+export const getCondition = (state: RootState) => state.condition.condition
 
 export default conditionSlice.reducer

@@ -59,7 +59,7 @@ const SalonMenu = () => {
         />
         <SalonLi
           text={isReduce ? "정보변경" : "매장 정보 변경"}
-          onClick={() => router.push("/users")}
+          onClick={() => dispatch(setCondition({ condition: "정보" }))}
         />
       </ul>
       <Button

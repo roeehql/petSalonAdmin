@@ -1,5 +1,5 @@
 import axios from "axios";
-import { SalonInput, Salons } from "@/types/salonsTypes";
+import { SalonInput, SalonAuth } from "@/types/salonsTypes";
 import { ReservationInput } from "@/types/ReservationTypes";
 import { TOKEN, handleStorage } from "@/util/handleStorage";
 
@@ -8,7 +8,7 @@ export const axiosApi = axios.create({
     });
 
 export const salonApi = {
-    createSalon : async (salonData:Salons)=> {
+    createSalon : async (salonData:SalonAuth)=> {
         const { data, status } = await axiosApi.post('/salons/create',{
             salonData
         })

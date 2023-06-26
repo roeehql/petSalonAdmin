@@ -8,7 +8,7 @@ export interface SalonList {
     hasCctv:boolean;
     hasPickupService:boolean;
 }
-export interface Salons{
+export interface SalonAuth{
     name:string;
     tel: string;
     password:string;
@@ -19,4 +19,4 @@ export interface Salons{
     hasPickupService:boolean;
 }
 
-export type SalonInput = Pick<Salons, "tel" | "password" >
+export type SalonInput = Pick<SalonAuth, "tel" | "password" >

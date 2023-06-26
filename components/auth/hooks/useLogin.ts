@@ -3,6 +3,7 @@ import { salonApi } from "@/pages/api/getSalonListApi"
 import { useAppDispatch } from "@/store/hooks"
 import { setToast } from "@/store/toastSlice"
 import { setUserInfo } from "@/store/userInfoSlice"
+import { setSalonInfo } from "@/store/salonInfoSlice"
 
 export const useLogin = () => {
     const dispatch = useAppDispatch()
@@ -11,9 +12,18 @@ export const useLogin = () => {
     const handleLogin = async ({tel,password}:{tel:string, password:string}) => {
         try{
             const {data, status} = await salonApi.loginSalon({tel,password})
-            console.log(data)
             if(status === 200){
-                dispatch(setUserInfo({shop:data.shop,tel,token:data.token}))
+                dispatch(setSalonInfo({
+                    id:data.salonInfo.id,
+                    name:data.salonInfo.name,
+                    tel: data.salonInfo.tel,
+                    address: data.salonInfo.address,
+                    canSissorCut: data.salonInfo.canSissorCut,
+                    canCatCut: data.salonInfo.canCatCut,
+                    hasCctv:data.salonInfo.hasCctv,
+                    hasPickupService:data.salonInfo.hasPickupService,
+                }))
+                dispatch(setUserInfo({shop:data.salonInfo.name,tel,token:data.token}))
                 dispatch(setToast({type:"success",text:data.message}))
                 router.push("/home")
             }else{
