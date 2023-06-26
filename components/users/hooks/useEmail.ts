@@ -10,12 +10,16 @@ export const useEmail = (form: RefObject<HTMLFormElement>) =>{
         e.preventDefault();
         const templateParams =
           form.current !== null ? form.current : "아무것도 작성되지 않았습니다.";
+        const API_KEY = process.env.NEXT_PUBLIC_API_KEY ? process.env.NEXT_PUBLIC_API_KEY : ""
+        const TEMPLATE_ID = process.env.NEXT_PUBLIC_TEMPLATE_ID ? process.env.NEXT_PUBLIC_TEMPLATE_ID : ""
+        const SERVICE_ID =process.env.NEXT_PUBLIC_SERVICE_ID ? process.env.NEXT_PUBLIC_SERVICE_ID : ""
+        
         emailjs
           .sendForm(
-            "service_k257ji7",
-            "template_ltilrb9",
-            templateParams,
-            "BZlB9P6ScykFm5VUT"
+              SERVICE_ID,
+              TEMPLATE_ID,
+              templateParams,
+              API_KEY
           )
           .then(
             (result) => {
