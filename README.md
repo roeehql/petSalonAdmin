@@ -16,6 +16,25 @@
 [기록 : 네이버 블로그](https://blog.naver.com/eehqlnote/223145094388)
 
 
+<br />
+
+
+### 시연 영상
+
+- 예약 내역 조회 및 승인
+  
+https://github.com/roeehql/pigONtrip/assets/127574239/66c6821d-8f5b-4970-95f4-4d16e82fc26e
+
+<br />
+
+- 회원가입
+
+https://github.com/roeehql/pigONtrip/assets/127574239/e7e36c41-12ac-45b2-b41e-43f6ec7ed568
+
+
+<br />
+<br />
+
 ### 폴더구조
 
 ```
@@ -39,6 +58,11 @@
 ├─types
 └─util //로컬스토리지 함수 보관
 ```
+<br />
 
 ### 실행
 
+---
+
+### 감사합니다
+---
