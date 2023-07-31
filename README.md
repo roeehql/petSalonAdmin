@@ -71,6 +71,9 @@ https://github.com/roeehql/pigONtrip/assets/127574239/e7e36c41-12ac-45b2-b41e-43
 
 <br />
 
+- 테스트용
+- ID : 01055556666
+- PW : 55556666
 
 ---
 
