@@ -62,6 +62,16 @@ https://github.com/roeehql/pigONtrip/assets/127574239/e7e36c41-12ac-45b2-b41e-43
 
 ### 실행
 
+
+[서버를 먼저 설치해주세요. https://github.com/roeehql/petSalonServer](https://github.com/roeehql/petSalonServer)
+
+<br />
+
+[배포 링크: https://pet-salon-admin.vercel.app/](https://pet-salon-admin.vercel.app/)
+
+<br />
+
+
 ---
 
 ### 감사합니다
